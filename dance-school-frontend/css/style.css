@@ -1141,3 +1141,82 @@ p {
 }
 
 
+
+
+
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.user-info, .enrolled-courses, .available-courses {
+    margin-bottom: 30px;
+}
+
+.user-details p {
+    margin: 10px 0;
+}
+
+.course-item {
+    background: #ecf0f1;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #3498db;
+}
+
+.course-item h4 {
+    margin-top: 0;
+    color: #2980b9;
+}
+
+.course-item p {
+    margin: 5px 0;
+}
+
+.enroll-btn, .logout-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.enroll-btn:hover, .logout-btn:hover {
+    background-color: #2980b9;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.profile-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.profile-container a:hover {
+    text-decoration: underline;
+}
+
+#userInfo, #enrolledCourses, #courseList {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+

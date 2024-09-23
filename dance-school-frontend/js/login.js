@@ -5,6 +5,8 @@ $(document).ready(function() {
         var username = $('#username').val();
         var password = $('#password').val();
 
+        console.log('Attempting login with:', username); // Добавьте это для отладки
+
         $.ajax({
             url: 'http://localhost:8081/api/auth/login',
             type: 'POST',
@@ -14,18 +16,21 @@ $(document).ready(function() {
                 password: password
             }),
             success: function(response) {
-                error: function(xhr, status, error) {
-    console.error('Error:', xhr.responseText);
-    console.error('Status:', status);
-    console.error('Error:', error);
-    alert('Ошибка при загрузке профиля. Пожалуйста, войдите снова.');
-    localStorage.removeItem('token');
-    window.location.href = 'login.html';
-}
-
+                console.log('Login response:', response); // Добавьте это для отладки
+                if (response.token) {
+                    localStorage.setItem('token', response.token);
+                    console.log('Token saved:', response.token);
+                    window.location.href = 'profile.html';
+                } else {
+                    console.error('No token received');
+                    alert('Ошибка входа. Токен не получен.');
+                }
             },
             error: function(xhr, status, error) {
-                alert('Произошла ошибка при входе. Пожалуйста, попробуйте еще раз.');
+                console.error('Login error:', error);
+                console.error('Status:', status);
+                console.error('Response:', xhr.responseText);
+                alert('Ошибка входа: ' + (xhr.responseText || error));
             }
         });
     });
